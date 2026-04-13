@@ -1,0 +1,262 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    box-sizing: border-box;
+}
+
+.inter-uniquifier {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    background-color: #1a1a1a;
+    height: 100vh;
+}
+
+header {
+    background-color: rgba(13, 13, 13, 1);
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+h1 {
+    color: #4ea8de;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+span {
+    color: #5e60ce;
+}
+
+input::placeholder {
+    color: #f2f2f2;
+    font-weight: 400;
+}
+
+input {
+    font-weight: 400;
+    width: 638px;
+    height: 54px;
+    padding: 0 16px;
+    background-color: #333333;
+    color: #f2f2f2;
+    border: none;
+    font-size: 16px;
+    border-radius: 8px;
+    box-shadow: 0 1px 8px 1px #000000;
+}
+
+input:focus {
+    outline: none;
+}
+
+button {
+    width: 90px;
+    height: 52px;
+    padding: 0 16px;
+    background-color: #1e6f9f;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    border: none;
+    color: white;
+    font-size: 14px;
+    border-radius: 8px;
+
+    position: relative;
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+button:hover {
+    background-color: #167db8b6;
+}
+
+button img {
+    width: 16px;
+    height: 16px;
+}
+
+.task-input {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: -27px;
+    align-items: center; /* 👈 muda isso */
+    margin-bottom: 62px;
+}
+
+.h2-h3 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.zero {
+    display: inline-flex;
+    background-color: #333333;
+    color: #d9d9d9;
+    margin-left: 8px;
+    border-radius: 999px;
+    width: 25px;
+    height: 19px;
+    padding: 2px 8px;
+}
+
+h2 {
+    color: #4ea8de;
+    font-size: 14px;
+}
+
+h3 {
+    color: #8284fa;
+    font-size: 14px;
+}
+
+.all {
+    width: 100%;
+    max-width: 46rem;
+    margin: 0 auto;
+}
+
+
+hr {
+    border: 1px solid #333333;
+    border-radius: 8px;
+    margin-bottom: 64px;
+}
+
+.aaa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.aaa > img {
+    margin-bottom: 16px;
+}
+
+p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #808080;
+    line-height: 1.5;
+}
+
+.aaa > span {
+    font-size: 16px;
+    font-weight: 400;
+    color: #808080;
+}
+
+.check,
+.delete {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* transform: translateY(-2px); */
+}
+
+.task {
+    width: 100%;
+    min-height: 4.5rem;
+    background: #262626;
+
+    border: .0625rem solid #333333;
+    border-radius: .5rem;
+
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+
+    padding: 1rem;
+    margin-bottom: .75rem;
+}
+
+.task-text {
+    flex: 1;
+    word-break: break-word;
+    line-height: 1.4;
+}
+
+h4 {
+    color: #F2F2F2;
+    font-size: .875rem;
+    font-weight: 400;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+.icon-btn img {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.icon-btn:hover,
+.icon-btn:focus,
+.icon-btn:active {
+    background: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.toggle-btn {
+    border: 2px solid #4EA8DE;
+    border-radius: 999px;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.active {
+    background-color: #4EA8DE; 
+}
+
+.toggle-btn:hover {
+    background-color: #4EA8DE;
+    opacity: 0.4;
+}
