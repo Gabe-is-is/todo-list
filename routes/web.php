@@ -1,51 +1,12 @@
 <?php
 
-use App\Models\Todo;
-use Illuminate\Http\Request;
+use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    $todos = Todo::all();
+Route::get('/', [TodoController::class, 'index'])->name('todo.index');
 
-    $completed = Todo::where('concluded', '=', true)->count();
+Route::post('/conclude/{id}', [TodoController::class, 'concluded'])->name('todo.toggleConcluded');
 
-    return view('index', [
-        'todos' => $todos,
-        'completed' => $completed
-    ]);
-})->name('todo.index');
+Route::post('/', [TodoController::class, 'create'])->name('todo.create');
 
-Route::post('/conclude/{id}', function (int $id) {
-    $todo = Todo::findOrFail($id);
-
-    $todo->concluded = !$todo->concluded;
-    $todo->save();
-
-    return response()->redirectToRoute('todo.index');
-})->name('todo.toggleConcluded');
-
-Route::post('/', function (Request $request) {
-    $request->validate(
-        [
-            'todo' => 'required|max:255|min:3'
-        ],
-        [
-            'todo.required' => 'O campo é obrigatório.',
-            'todo.max' => 'O máximo de caracteres foi excedido.',
-            'todo.min' => 'É obrigatório no mínimo 3 caracteres.'
-        ]
-    );
-
-    $todo = new Todo();
-    $todo->name = $request->todo;
-    $todo->save();
-
-    return response()->redirectToRoute('todo.index');
-})->name('todo.create');
-
-Route::post('/delete/{id}', function (int $id) {
-    $todo = Todo::findOrFail($id);
-    $todo->delete();
-
-    return response()->redirectToRoute('todo.index');
-})->name('todo.delete');
+Route::post('/delete/{id}', [TodoController::class, 'delete'])->name('todo.delete');
