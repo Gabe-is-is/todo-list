@@ -48,6 +48,7 @@
             @foreach ($todos as $todo)
                 <div class="task">
                     <form action="{{ route('todo.toggleConcluded', ['id' => $todo->id]) }}" method="post">
+                        @method('PATCH')
                         <button class="toggle-btn @if ($todo->concluded) active @endif">
                         </button>
                     </form>
@@ -55,6 +56,7 @@
                         <h4>{{ $todo->name }}</h4>
                     </div>
                     <form action="{{ route('todo.delete', ['id' => $todo->id]) }}" method="post">
+                        @method('DELETE')
                         <button class="icon-btn">
                             <img class="delete" src="{{ Vite::asset('resources/views/trash.svg') }}" width="24" height="24">
                         </button>
