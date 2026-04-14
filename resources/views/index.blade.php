@@ -12,6 +12,20 @@
 </head>
 
 <body>
+    <section class="section-dialog hidden" id="section-dialog">
+        <article class="article-dialog" id="article-dialog">
+            <div id="modal" class="dialog">
+                <div id="modal-text">
+                    <h2>Você tem certeza que deseja excluir esta tarefa?</h2>
+                    <p>Esta ação não poderá ser desfeita!</p>
+                </div>
+                <div class="buttons">
+                    <button id="confirm">Confirmar</button>
+                    <button id="cancel">Cancelar</button>
+                </div>
+            </div>
+        </article>
+    </section>
 
     <section>
         <header>
@@ -55,7 +69,7 @@
                     <div class="task-text">
                         <h4>{{ $todo->name }}</h4>
                     </div>
-                    <form action="{{ route('todo.delete', ['id' => $todo->id]) }}" method="post">
+                    <form class="delete-form" action="{{ route('todo.delete', ['id' => $todo->id]) }}" method="post">
                         @method('DELETE')
                         <button class="icon-btn">
                             <img class="delete" src="{{ Vite::asset('resources/views/trash.svg') }}" width="24" height="24">

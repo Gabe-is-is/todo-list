@@ -260,3 +260,61 @@ h4 {
     background-color: #4EA8DE;
     opacity: 0.4;
 }
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+#modal {
+    border: none;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    background-color: white;
+    width: 500px;
+    height: fit-content;
+    max-height: 400px;
+}
+
+#modal::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#modal button {
+    margin: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+#modaltext {
+    display: flex;
+}
+
+.section-dialog {
+    position: relative;
+}
+
+.article-dialog {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+}
+
+.buttons {
+    display: flex;
+    gap: .5rem;
+    width: 100%;
+    justify-content: center;
+    margin-top: 8px;
+}

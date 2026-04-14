@@ -1,84 +1,46 @@
-const input = document.getElementById("task-input");
-const button = document.getElementById("add-task");
+const modal = document.getElementById("modal");
+const confirm = document.getElementById("confirm");
+const cancel = document.getElementById("cancel");
 
-const tasksContainer = document.querySelector(".tasks-container");
-const emptyState = document.querySelector(".empty-state");
+const section = document.getElementById("section-dialog");
+const article = document.getElementById("article-dialog");
 
-const totalSpan = document.getElementById("total");
-const completedSpan = document.getElementById("completed");
+let formtosend = null;
 
-let tarefas = [];
+document.querySelectorAll(".delete-form").forEach((form) => {
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        formtosend = form;
 
-function atualizarTela() {
-    tasksContainer.innerHTML = "";
+        section.classList.remove("hidden");
+        section.classList.add("show");
+    });
+});
 
-    // controla mensagem + hr
-    if (tarefas.length === 0) {
-        emptyState.style.display = "block";
-    } else {
-        emptyState.style.display = "none";
+confirm.addEventListener("click", function () {
+    if (formtosend) {
+        formtosend.submit();
     }
 
-    let concluidas = 0;
+    section.classList.remove("show");
+    section.classList.add("hidden");
+});
 
-    tarefas.forEach((tarefa, index) => {
-        const task = document.createElement("div");
-        task.classList.add("task");
+cancel.addEventListener("click", function () {
+    formtosend = null;
 
-        // CHECK
-        const check = document.createElement("button");
-        check.classList.add("check");
-        check.innerHTML = `<img src="/icons/check.svg" alt="check">`;
+    section.classList.remove("show");
+    section.classList.add("hidden");
+});
 
-        check.onclick = () => {
-            tarefa.concluida = !tarefa.concluida;
-            atualizarTela();
-        };
-
-        // TEXTO
-        const text = document.createElement("h4");
-        text.classList.add("task-text");
-        text.textContent = tarefa.texto;
-
-        if (tarefa.concluida) {
-            check.innerHTML = `<img src="/icons/done.svg" alt="done">`;
-            text.style.textDecoration = "line-through";
-            text.style.color = "#808080";
-            concluidas++;
-        }
-
-        // DELETE
-        const del = document.createElement("button");
-        del.classList.add("delete");
-        del.innerHTML = `<img src="/icons/trash.svg" alt="trash">`;
-
-        del.onclick = () => {
-            tarefas.splice(index, 1);
-            atualizarTela();
-        };
-
-        task.appendChild(check);
-        task.appendChild(text);
-        task.appendChild(del);
-
-        tasksContainer.appendChild(task);
-    });
-
-    totalSpan.textContent = tarefas.length;
-    completedSpan.textContent = `${concluidas} de ${tarefas.length}`;
+function closeModal(e) {
+    const target = e.target;
+    if (target === article) {
+        section.classList.add("hidden");
+        section.classList.remove("show");
+    }
 }
 
-// criar tarefa
-button.addEventListener("click", () => {
-    const texto = input.value.trim();
+article.addEventListener("click", closeModal);
 
-    if (texto === "") return;
-
-    tarefas.push({
-        texto: texto,
-        concluida: false
-    });
-
-    input.value = "";
-    atualizarTela();
-});
+// criar uma tela de login
