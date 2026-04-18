@@ -43,4 +43,6 @@ function closeModal(e) {
 
 article.addEventListener("click", closeModal);
 
-// criar uma tela de login
+// criar uma tela de registro
+// nome, email, senha, telefone;
+// links roxos

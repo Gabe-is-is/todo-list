@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    box-sizing: border-box;
+}
+
+.inter-uniquifier {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+}
+
+body {
+    background-color: #1a1a1a;
+}
+
+h1 {
+    color: #4ea8de;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+span {
+    color: #5e60ce;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 32px 16px;
+}
+
+section {
+    min-width: 448px;
+    background-color: #333;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 0;
+    border-radius: 16px;
+
+}
+
+.h2-p {
+    display: grid;
+    text-align: center;
+    padding: 0 24px 24px 24px;
+}
+
+.h2-p h2 {
+    color: #F2F2F2;
+    margin-bottom: 16px;
+}
+
+.h2-p p {
+    color: rgb(128, 128, 128);
+    font-size: 14px;
+}
+
+.infos {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 24px;
+}
+
+.nome {
+
+}
+
+.nome h3 {
+    color: #F2F2F2;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+input::placeholder {
+    color: #f2f2f2;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+input {
+    font-weight: 400;
+    width: 100%;
+    height: 40px;
+    padding: 0 16px 0 0;
+    color: #f2f2f2;
+    border: none;
+    font-size: 16px;
+    background-color: transparent;
+}
+
+input:focus {
+    outline: none;
+}
+
+.input-container {
+    border-radius: 6px;
+    display: flex;
+    background-color: #444;
+    color: white;
+    padding-left: 4px;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 32px;
+}
+
+.icon > svg {
+    width: 16px;
+    height: 16px;
+}
+
+button {
+    width: 100%;
+    height: 40px;
+    padding: 0 16px;
+    background-color: #4ea8de;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-weight: 600;
+    border: none;
+    color: #1a1a1a;
+    font-size: 14px;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    position: relative;
+}
+
+h4 {
+    text-align: center;
+    font-size: 14px;
+    font-weight: normal;
+    color: #808080;
+}
+
+.login {
+    color: #4ea8de
+}

@@ -19,6 +19,18 @@ class TodoController extends Controller
         ]);
     }
 
+        public function register()
+    {
+        $todos = Todo::all();
+
+        $completed = Todo::where('concluded', '=', true)->count();
+
+        return view('register', [
+            'todos' => $todos,
+            'completed' => $completed
+        ]);
+    }
+
     public function create(Request $request)
     {
         $request->validate(
