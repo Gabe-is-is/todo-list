@@ -19,18 +19,6 @@ class TodoController extends Controller
         ]);
     }
 
-        public function register()
-    {
-        $todos = Todo::all();
-
-        $completed = Todo::where('concluded', '=', true)->count();
-
-        return view('register', [
-            'todos' => $todos,
-            'completed' => $completed
-        ]);
-    }
-
     public function create(Request $request)
     {
         $request->validate(
@@ -38,7 +26,7 @@ class TodoController extends Controller
                 'todo' => 'required|max:255|min:3'
             ],
             [
-                'todo.required' => 'O campo é obrigatório.',
+                'todo.required' => 'O campo todo é obrigatório.',
                 'todo.max' => 'O máximo de caracteres foi excedido.',
                 'todo.min' => 'É obrigatório no mínimo 3 caracteres.'
             ]
@@ -49,6 +37,12 @@ class TodoController extends Controller
         $todo->save();
 
         return response()->redirectToRoute('todo.index');
+        // return response()->json(
+        //     [
+        //         "sucess" => true
+        //     ],
+        //     201
+        // );
     }
 
     public function concluded(int $id)

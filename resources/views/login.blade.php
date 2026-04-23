@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todolist</title>
     @vite([
-        'resources/css/register.css'
+        'resources/css/login.css'
     ])
 </head>
 
@@ -20,29 +20,10 @@
         </header>
         <section>
             <div class="h2-p">
-                <h2>Criar conta</h2>
-                <p>Preencha os campos abaixo para se cadastrar</p>
+                <h2>Fazer login</h2>
+                <p>Preencha os campos abaixo para fazer o login</p>
             </div>
-            <form class="infos" method="post" action="{{ route('register.create') }}">
-                <div class="nome">
-                    @error('name')
-                        <span>{{ $message }}</span>
-                    @enderror
-                    <h3>Nome</h3>
-                    <div class="input-container">
-                        <div class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round"
-                                class="lucide lucide-user absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"
-                                aria-hidden="true">
-                                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
-                        </div>
-                        <input placeholder="Digite seu nome" name="name" type="text" value="{{ old("name") }}">
-                    </div>
-                </div>
+            <form class="infos" method="post" action="{{ route('login.create') }}">
                 <div class="nome">
                     @error('email')
                         <span>{{ $message }}</span>
@@ -101,7 +82,7 @@
                     </div>
                 </div> --}}
                 <button type="submit">
-                    Criar conta
+                    Fazer login
                     <div class="icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -111,7 +92,8 @@
                             <path d="m12 5 7 7-7 7"></path>
                         </svg>
                 </button>
-                <h4>Já tem uma conta? <span class="login"><a href="{{ route('login') }}">Fazer login</a></span></h4>
+                <h4>Não tem uma conta? <span class="login"><a href="{{ route('register.index') }}">Cadastre-se</a></span></h4>
+                <h4><a href="{{ route('recover') }}">Esqueci minha senha</a></h4>
             </form>
         </section>
     </main>
