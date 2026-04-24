@@ -34,6 +34,11 @@
                 <h1>to<span>do</span></h1>
             </div>
         </header>
+        <form action="{{ route('logout') }}" method="post">
+            <button type="submit">
+                <img class="logout" src="{{ Vite::asset('resources/views/logout-svgrepo-com.svg') }}" width="16" height="16" alt="logout-icon">
+            </button>
+        </form>
         <form class="task-input" action="{{ route('todo.create') }}" method="post">
             <input type="text" placeholder="Adicione uma nova tarefa" name="todo">
             @error('todo')
@@ -41,7 +46,7 @@
             @enderror
             <button type="submit">
                 Criar
-                <img src="{{ Vite::asset('resources/views/plus.svg') }}" width="16" height="16" alt="plus-icon">
+                <img class= "create" src="{{ Vite::asset('resources/views/plus.svg') }}" width="16" height="16" alt="plus-icon">
             </button>
         </form>
         <div class="all">

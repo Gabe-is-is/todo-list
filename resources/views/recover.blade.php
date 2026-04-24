@@ -23,7 +23,7 @@
                 <h2>Recuperar senha</h2>
                 <p>Preencha o campo abaixo para recuperar a sua senha</p>
             </div>
-            <form class="infos" method="post" action="{{ route('login.create') }}">
+            <form class="infos" method="post" action="{{ route('recover.create') }}">
                 <div class="nome">
                     @error('email')
                         <span>{{ $message }}</span>
