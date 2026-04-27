@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\ConfirmEmailController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\PasswordResetController;
 use App\Http\Controllers\Auth\RecoverController;
@@ -31,9 +32,8 @@ Route::middleware([
 Route::middleware([
     'auth'
 ])->group(function () {
-    Route::get('verify-email', function () {
-        return 'email não verificado';
-    })->name('verification.notice');
+    Route::get('/verify-email', [ConfirmEmailController::class, 'index'])->name('verification.notice');
+    Route::get('/confirmed-email', [ConfirmEmailController::class, 'confirmEmail'])->middleware(['signed'])->name('verification.verify');
 });
 
 Route::middleware([
