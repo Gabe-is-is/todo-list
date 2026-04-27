@@ -34,21 +34,23 @@
                 <h1>to<span>do</span></h1>
             </div>
         </header>
-        <form action="{{ route('logout') }}" method="post">
-            <button type="submit">
-                <img class="logout" src="{{ Vite::asset('resources/views/logout-svgrepo-com.svg') }}" width="16" height="16" alt="logout-icon">
-            </button>
-        </form>
-        <form class="task-input" action="{{ route('todo.create') }}" method="post">
-            <input type="text" placeholder="Adicione uma nova tarefa" name="todo">
-            @error('todo')
-                <span>{{ $message }}</span>
-            @enderror
-            <button type="submit">
-                Criar
-                <img class= "create" src="{{ Vite::asset('resources/views/plus.svg') }}" width="16" height="16" alt="plus-icon">
-            </button>
-        </form>
+        <div class="organizer">
+            <form class="task-input" action="{{ route('todo.create') }}" method="post">
+                <input type="text" placeholder="Adicione uma nova tarefa" name="todo">
+                @error('todo')
+                    <span>{{ $message }}</span>
+                @enderror
+                <button type="submit">
+                    Criar
+                    <img class= "create" src="{{ Vite::asset('resources/views/plus.svg') }}" width="16" height="16" alt="plus-icon">
+                </button>
+            </form>
+             <form action="{{ route('logout') }}" method="post">
+                <button type="submit">
+                    <img class="logout" src="{{ Vite::asset('resources/views/logout-svgrepo-com.svg') }}" width="16" height="16" alt="logout-icon">
+                </button>
+            </form>
+        </div>
         <div class="all">
             <div class="h2-h3">
                 <h2>Tarefas criadas<span class="zero">{{ count($todos) }}</span></h2>
@@ -77,7 +79,7 @@
                     <form class="delete-form" action="{{ route('todo.delete', ['id' => $todo->id]) }}" method="post">
                         @method('DELETE')
                         <button class="icon-btn">
-                            <img class="delete" src="{{ Vite::asset('resources/views/trash.svg') }}" width="24" height="24">
+                            <img class="delete" src="{{ Vite::asset('resources/views/trash.svg') }}" width="24" height="24" alt="trash-icon">
                         </button>
                     </form>
                 </div>

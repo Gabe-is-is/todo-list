@@ -51,5 +51,3 @@ Route::middleware([
     Route::get('/reset/{token}', [PasswordResetController::class, 'index'])->name('password.reset');
     Route::post('/reset', [PasswordResetController::class, 'reset'])->name('reset.create');
 });
-
-// criar uma pagina de 'email nao verificado', botao de 'reenviar'
